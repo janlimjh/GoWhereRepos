@@ -23,6 +23,6 @@ public partial class suspendUA : System.Web.UI.Page
         con.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("/GoWhere/App_Data/Database.mdb");
         con.Open(); // connection open 
 
-
+        con.Close();
     }
 }
