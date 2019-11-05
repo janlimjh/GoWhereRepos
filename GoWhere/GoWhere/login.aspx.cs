@@ -28,7 +28,7 @@ public partial class GoWhere_login : System.Web.UI.Page
 
         if (user.Equals("UA"))
         {
-            sql = "SELECT COUNT(*) FROM USER_ADMIN WHERE user='" + loginUser.Text + "' AND pass='" + loginPwd.Text + "'";
+            sql = "SELECT COUNT(*) FROM User_Admin WHERE user='" + loginUser.Text + "' AND pass='" + loginPwd.Text + "'";
             OleDbCommand cmd = new OleDbCommand(sql, con);
             row = (int)cmd.ExecuteScalar(); // cast into integer and ExecuteScalar() get single value from database.
             if (row > 0)
@@ -39,7 +39,7 @@ public partial class GoWhere_login : System.Web.UI.Page
 
         else if (user.Equals("TG"))
         {
-            sql = "SELECT COUNT(*) FROM TOUR_GUIDE WHERE user='" + loginUser.Text + "' AND pass='" + loginPwd.Text + "'";
+            sql = "SELECT COUNT(*) FROM Tour_Guide WHERE user='" + loginUser.Text + "' AND pass='" + loginPwd.Text + "' AND suspended=0";
             OleDbCommand cmd = new OleDbCommand(sql, con);
             row = (int)cmd.ExecuteScalar(); // cast into integer and ExecuteScalar() get single value from database.
             if (row > 0)
@@ -50,7 +50,7 @@ public partial class GoWhere_login : System.Web.UI.Page
 
         else if (user.Equals("TR"))
         {
-            sql = "SELECT COUNT(*) FROM TOURIST WHERE user='" + loginUser.Text + "' AND pass='" + loginPwd.Text + "'";
+            sql = "SELECT COUNT(*) FROM Tourist WHERE user='" + loginUser.Text + "' AND pass='" + loginPwd.Text + "' AND suspended=0";
             OleDbCommand cmd = new OleDbCommand(sql, con);
             row = (int)cmd.ExecuteScalar(); // cast into integer and ExecuteScalar() get single value from database.
             if (row > 0)
