@@ -14,11 +14,37 @@
 </asp:Content>
 
 <asp:Content ID="viewToursContent" ContentPlaceHolderID="content" Runat="Server">
-    <asp:Table ID="viewTable" runat="server">
+    <asp:Table ID="TRTourTable" runat="server">
         <asp:TableHeaderRow>
-            <asp:TableCell ColumnSpan ="3"> <b> Tour Information List</b></asp:TableCell>
+            <asp:TableCell ColumnSpan ="3"> 
+                <b> VIEW TOURS LIST</b>
+            </asp:TableCell>
         </asp:TableHeaderRow>
+         <asp:TableRow>
+             <asp:TableCell>
+                <asp:Label ID="startdate" runat="server" Text="Start Date"></asp:Label>
+            </asp:TableCell>
+             <asp:TableCell>
+                <asp:Label ID="ID" runat="server" Text="ID"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="name" runat="server" Text="Name"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:DropDownList ID="tourDate" runat="server">
+                    <asp:ListItem Selected="True" Value ="#">####</asp:ListItem>
+                    <asp:ListItem Value="#">####</asp:ListItem>
+                    <asp:ListItem Value="#">####</asp:ListItem>
+                </asp:DropDownList> 
+            </asp:TableCell>
+            <asp:TableCell> 
+                <asp:HyperLink ID="tourID" runat="server" NavigateUrl="~/viewTInfo.aspx"> # </asp:HyperLink> 
+            </asp:TableCell>
+            <asp:TableCell> 
+                 <asp:TextBox ID="tourName" runat="server" Width="400px"></asp:TextBox>  
+            </asp:TableCell>
+        </asp:TableRow>
     </asp:Table>
-
-    <asp:Table ID="DisplayTable" runat="server"></asp:Table>
 </asp:Content>

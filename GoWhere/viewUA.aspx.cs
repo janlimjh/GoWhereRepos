@@ -18,7 +18,7 @@ public partial class viewUA : System.Web.UI.Page
         con.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("/GoWhere/App_Data/Database.mdb");
         con.Open(); // connection open 
 
-        sql = "SELECT Tour_Guide.TGID, Tourist.TID, Tour_Guide.user, Tour_Guide.suspended FROM Tour_Guide INNER JOIN Tourist ON(Tour_Guide.suspended = Tourist.suspended) AND(Tour_Guide.pass = Tourist.pass) AND(Tour_Guide.user = Tourist.user);";
+        sql = "SELECT Tour_Guide.TGID, Tourist.TID, Tourist.user FROM Tour_Guide INNER JOIN Tourist ON(Tour_Guide.suspended = Tourist.suspended) AND(Tour_Guide.pass = Tourist.pass) AND(Tour_Guide.user = Tourist.user);";
         OleDbCommand cmd = new OleDbCommand(sql, con);
 
         OleDbDataReader reader = cmd.ExecuteReader();
@@ -42,11 +42,6 @@ public partial class viewUA : System.Web.UI.Page
         userHeading.HorizontalAlign = HorizontalAlign.Left;
         tableHeading.Cells.Add(userHeading);
 
-        TableHeaderCell susHeading = new TableHeaderCell();
-        susHeading.Text = "Status";
-        susHeading.HorizontalAlign = HorizontalAlign.Left;
-        tableHeading.Cells.Add(susHeading);
-
         DisplayTable.Rows.Add(tableHeading);
 
         // add details to table
@@ -64,15 +59,6 @@ public partial class viewUA : System.Web.UI.Page
             TableCell userCell = new TableCell();
             userCell.Text = reader["user"].ToString();
             detailsRow.Cells.Add(userCell);
-
-            TableCell susCell = new TableCell();
-            if (Convert.ToBoolean(reader["suspended"]) == true)
-            {
-                susCell.Text = "Suspended";
-            }
-            else 
-                susCell.Text = "Active";
-            detailsRow.Cells.Add(susCell);
 
             DisplayTable.Rows.Add(detailsRow);
 
